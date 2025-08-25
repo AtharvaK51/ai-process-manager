@@ -1,0 +1,8 @@
+# Production dependencies
+-r requirements.txt
+
+# Development dependencies
+pytest==8.3.4
+black==24.10.0
+flake8==7.1.1
+mypy==1.13.0
