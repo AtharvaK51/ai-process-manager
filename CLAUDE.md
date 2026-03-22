@@ -5,9 +5,10 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Commands
 
 ```bash
-# Install dependencies
-uv pip install -r requirements.txt
-uv pip install -r requirements-dev.txt
+# First-time setup (creates .venv)
+uv venv .venv
+source .venv/bin/activate
+uv pip install -r requirements-dev.txt  # includes runtime deps
 
 # Run the server
 uvicorn main:app --reload
@@ -17,6 +18,9 @@ FAST_TEST=1 pytest -q
 
 # Run a single test
 FAST_TEST=1 pytest test_main.py::test_function_name -q
+
+# Watch mode for TDD (re-runs tests on file change)
+FAST_TEST=1 ptw -- -q
 
 # Lint and format
 black .
